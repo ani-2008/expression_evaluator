@@ -19,5 +19,8 @@ for i in expr_list:
         sys.exit()
     else:
         continue
-    
-print(int(str(number_stack).strip("[\']")))
+
+if len(number_stack) == 1:
+    print(int(str(number_stack).strip("[\']")))
+else:
+    print("INVALID SYNTAX: leftover operands")
