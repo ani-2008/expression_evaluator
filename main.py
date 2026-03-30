@@ -1,4 +1,4 @@
-import sys
+
 def rpn():
     expr = input("")
     expr_list = expr.split()
@@ -10,9 +10,11 @@ def rpn():
         elif i in operators:
             if len(number_stack) < 2:
                 print("INVALID SYNTAX")
-                
-            number1 = number_stack.pop()
-            number2 = number_stack.pop()
+            try: 
+                number1 = number_stack.pop()
+                number2 = number_stack.pop()
+            except IndexError:
+                continue
             try:
                 number_stack.append(str(eval(number2+i+number1)))
             except ZeroDivisionError as e:
